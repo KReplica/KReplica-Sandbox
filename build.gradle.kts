@@ -18,6 +18,7 @@ java {
 
 repositories {
     mavenCentral()
+    maven { url = uri("https://repo.gradle.org/gradle/libs-releases") }
 }
 
 dependencies {
@@ -26,6 +27,9 @@ dependencies {
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-compiler-embeddable:2.2.0")
+    implementation("com.google.devtools.ksp:symbol-processing-api:2.2.0-2.0.2")
+    implementation("org.gradle:gradle-tooling-api:8.8")
+    runtimeOnly("com.google.devtools.ksp:symbol-processing:2.2.0-2.0.2")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
