@@ -1,0 +1,30 @@
+plugins {
+    kotlin("jvm") version "2.2.0"
+    kotlin("plugin.serialization") version "2.2.0"
+    id("com.google.devtools.ksp") version "2.2.0-2.0.2"
+    id("io.availe.kreplica") version "5.0.0"
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation(platform("org.jetbrains.kotlinx:kotlinx-coroutines-bom:1.10.2"))
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-jdk8")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test")
+
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:1.9.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.9.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-cbor:1.9.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-protobuf:1.9.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-properties:1.9.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-hocon:1.9.0")
+
+    implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.7.1")
+    implementation("org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.0")
+    implementation("org.jetbrains.kotlinx:atomicfu:0.29.0")
+
+    implementation("io.arrow-kt:arrow-core:2.1.2")
+}

@@ -62,21 +62,21 @@ class CompilerService {
     }
 
     private fun createProjectFiles(projectDir: File, sourceCode: String) {
-        File(projectDir, "settings.gradle.kts").writeText("""
-            rootProject.name = "kreplica-embedded"
-        """.trimIndent())
+        File(projectDir, "settings.gradle.kts").writeText(
+            readResource("/templates/gradle/settings.gradle.kts.template")
+        )
 
-        File(projectDir, "build.gradle.kts").writeText("""
-            plugins {
-                kotlin("jvm") version "2.2.0"
-                id("com.google.devtools.ksp") version "2.2.0-2.0.2"
-                id("io.availe.kreplica") version "5.0.0"
-            }
-            repositories { mavenCentral() }
-        """.trimIndent())
+        File(projectDir, "build.gradle.kts").writeText(
+            readResource("/templates/gradle/build.gradle.kts.template")
+        )
 
         val srcDir = File(projectDir, "src/main/kotlin/io/availe/playground")
         srcDir.mkdirs()
         File(srcDir, "Source.kt").writeText(sourceCode)
+    }
+
+    private fun readResource(path: String): String {
+        return javaClass.getResource(path)?.readText()
+            ?: throw IllegalStateException("Cannot find resource: $path")
     }
 }
