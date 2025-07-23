@@ -1,0 +1,17 @@
+# Git
+.git/
+.gitignore
+.gitattributes
+
+# Local build artifacts
+build/
+.gradle/
+jte-classes/
+
+# IDE files
+.idea/
+*.iml
+*.iws
+
+# OS files
+.DS_Store
